@@ -1,6 +1,8 @@
 package com.example.daftarteman
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +44,15 @@ class RecyclerViewAdapter (private val listdata_teman: ArrayList<Data_teman>, co
         holder.NoHP.text = "NoHP: $NoHP"
         holder.ListItem.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(v: View?): Boolean {
+                holder.ListItem.setOnLongClickListener{ view ->
+                    val action = arrayOf("Update", "Delete")
+                    val alert: AlertDialog.Builder = AlertDialog.Builder(view.context)
+                    alert.setItems(action, DialogInterface.OnClickListener { dialog, i ->
+                        when (i) { 0 -> {
+                            
+                        }}
+                    })
+                }
                 return true
             }
         })
